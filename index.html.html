@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA // World-Class Creative Design Agency</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        luxury: {
+                            black: '#030303',
+                            charcoal: '#0D0D11',
+                            gray: '#16161F',
+                            lightGray: '#222230',
+                            accentBlue: '#3B82F6',
+                            accentPurple: '#8B5CF6',
+                            accentCyan: '#06B6D4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'gradient-x': 'gradient-x 15s ease infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-reverse': 'float-reverse 8s ease-in-out infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        'gradient-x': {
+                            '0%, 100%': { 'background-position': '0% 50%' },
+                            '50%': { 'background-position': '100% 50%' },
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-15px) rotate(2deg)' },
+                        },
+                        'float-reverse': {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(15px) rotate(-3deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom Premium Utilities & Performance Overrides */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #030303;
+            overflow-x: hidden;
+            color: #F3F4F6;
+        }
+        
+        /* Modern Glassmorphism Base */
+        .glass {
+            background: rgba(13, 13, 17, 0.6);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-premium {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Hardware Accelerated Smooth Transitions */
+        .gpu-layer {
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            perspective: 1000px;
+            will-change: transform, opacity;
+        }
+
+        /* Custom Scrollbar for Luxury UX */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030303;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222230;
+            border-radius: 4px;
+            border: 2px solid #030303;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3B82F6;
+        }
+
+        /* Reveal on Scroll Initial State */
+        .reveal-up {
+            opacity: 0;
+            transform: translate3d(0, 40px, 0);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-up.active {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+        /* Elegant Hover Outlines & Glows */
+        .glow-hover {
+            position: relative;
+            transition: all 0.4s ease;
+        }
+        .glow-hover::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6, #06B6D4);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .glow-hover:hover::after {
+            opacity: 1;
+        }
+
+        /* Noise overlay effect to give depth */
+        .noise-bg {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3联%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.015;
+            pointer-events: none;
+        }
+
+        /* Glowing Mouse Orb (Hardware Optimized CSS Custom Prop) */
+        #glowing-cursor-orb {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(139,92,246,0.12) 0%, rgba(59,130,246,0.03) 50%, rgba(0,0,0,0) 100%);
+            border-radius: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            z-index: 1;
+            transition: transform 0.1s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
+        }
+        
+        @media (max-width: 1024px) {
+            #glowing-cursor-orb {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="selection:bg-luxury-accentBlue selection:text-white antialiased">
+
+    <!-- Glowing Dynamic Spot Area (GPU Bound) -->
+    <div id="glowing-cursor-orb"></div>
+
+    <!-- Universal Noise Layer -->
+    <div class="fixed inset-0 z-50 noise-bg"></div>
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 w-full z-40 transition-all duration-300 px-6 py-4 md:px-12" id="main-header">
+        <div class="max-w-7xl mx-auto flex items-center justify-between glass-premium rounded-full px-6 py-3.5 border border-white/10 shadow-lg">
+            <!-- Brand Logo -->
+            <a href="/">
+  	    	<img src="qg logo.png" alt="Company Name Logo" width="300" height="75">
+	    </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-400">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#services" class="hover:text-white transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-white transition-colors">Work</a>
+                <a href="#process" class="hover:text-white transition-colors">Process</a>
+                <a href="#estimator" class="hover:text-white transition-colors">Calculator</a>
+                <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+            </nav>
+
+            <!-- CTA / Contact Trigger -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#contact" class="px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-white text-luxury-black hover:bg-transparent hover:text-white border border-white transition-all duration-300 shadow-md">
+                    Start a Project
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button class="md:hidden text-white focus:outline-none" id="mobile-menu-btn">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Panel (Slide Down) -->
+        <div class="hidden md:hidden mt-3 mx-2 rounded-2xl glass-premium p-6 border border-white/10 transition-all duration-300" id="mobile-menu-panel">
+            <div class="flex flex-col space-y-4 text-center">
+                <a href="#about" class="text-gray-300 hover:text-white text-base py-2 border-b border-white/5">About</a>
+                <a href="#services" class="text-gray-300 hover:text-white text-base py-2 border-b border-white/5">Services</a>
+                <a href="#portfolio" class="text-gray-300 hover:text-white text-base py-2 border-b border-white/5">Work</a>
+                <a href="#process" class="text-gray-300 hover:text-white text-base py-2 border-b border-white/5">Process</a>
+                <a href="#estimator" class="text-gray-300 hover:text-white text-base py-2 border-b border-white/5">Calculator</a>
+                <a href="#faq" class="text-gray-300 hover:text-white text-base py-2 border-b border-white/5">FAQ</a>
+                <a href="#contact" class="mt-4 px-6 py-3 rounded-full text-sm font-bold bg-gradient-to-r from-luxury-accentBlue to-luxury-accentPurple text-white">Start a Project</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden px-6 lg:px-12">
+        <!-- Background Lighting (CSS-Only Soft Blob Layers, optimized for GPU rendering) -->
+        <div class="absolute -top-[20%] -left-[10%] w-[60vw] h-[60vw] rounded-full bg-luxury-accentBlue/10 blur-[130px] animate-float"></div>
+        <div class="absolute -bottom-[10%] -right-[10%] w-[50vw] h-[50vw] rounded-full bg-luxury-accentPurple/15 blur-[150px] animate-float-reverse"></div>
+        <div class="absolute top-[30%] left-[40%] w-[30vw] h-[30vw] rounded-full bg-luxury-accentCyan/5 blur-[100px] animate-float"></div>
+
+        <!-- Beautiful Grid Background Overlay (Framer Style) -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10 items-center">
+            
+            <!-- Hero Typography / Info Left Column (7/12 Width) -->
+            <div class="lg:col-span-7 flex flex-col space-y-8 text-left">
+                <!-- Mini Tag -->
+                <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full w-fit">
+                    <span class="w-2 h-2 rounded-full bg-luxury-accentCyan animate-pulse"></span>
+                    <span class="text-xs tracking-wider uppercase font-semibold text-gray-300">Award-winning Creative Agency</span>
+                </div>
+
+                <!-- Big Title -->
+                <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-white">
+                    We sculpt <br>
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-luxury-accentBlue via-luxury-accentPurple to-luxury-accentCyan animate-gradient-x bg-[length:200%_auto]">
+                        unforgettable
+                    </span> <br>
+                    digital futures.
+                </h1>
+
+                <!-- Sub-text -->
+                <p class="text-gray-400 text-lg sm:text-xl max-w-xl font-light leading-relaxed">
+                    A premium digital studio marrying visionary design with ultra-fast technology. We build flagship digital products that scale reputations and industries.
+                </p>
+
+                <!-- Interactive Dual CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
+                    <a href="#portfolio" class="group px-8 py-4 rounded-full text-sm font-semibold text-center text-luxury-black bg-white hover:bg-transparent hover:text-white border border-white transition-all duration-300 flex items-center justify-center space-x-2 shadow-lg hover:shadow-luxury-accentBlue/20">
+                        <span>Explore Portfolio</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1.5"></i>
+                    </a>
+                    <a href="#contact" class="px-8 py-4 rounded-full text-sm font-semibold text-center text-white bg-white/5 border border-white/10 hover:border-white/30 hover:bg-white/10 transition-all duration-300">
+                        Let's Talk
+                    </a>
+                </div>
+
+                <!-- Live Client Metrics -->
+                <div class="grid grid-cols-3 gap-6 pt-8 border-t border-white/10 max-w-lg">
+                    <div>
+                        <p class="text-3xl font-display font-bold text-white tracking-tight">400+</p>
+                        <p class="text-xs text-gray-400 mt-1">Shaped Products</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-display font-bold text-white tracking-tight">18+</p>
+                        <p class="text-xs text-gray-400 mt-1">Design Awards</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-display font-bold text-white tracking-tight">99%</p>
+                        <p class="text-xs text-gray-400 mt-1">Client Love</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beautiful Floating UX Interactive Cards Right Column (5/12 Width) -->
+            <div class="lg:col-span-5 relative flex items-center justify-center h-[500px]">
+                
+                <!-- Main Glass Card Stack -->
+                <div class="absolute w-[280px] sm:w-[320px] glass-premium rounded-3xl p-6 border border-white/15 shadow-2xl animate-float z-20">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="text-[10px] text-gray-400 uppercase tracking-widest font-mono">active project</span>
+                    </div>
+                    
+                    <p class="font-display font-semibold text-lg text-white mb-2">Modernizing SaaS Identity</p>
+                    <div class="flex items-center space-x-2 mb-6 text-xs text-gray-400">
+                        <span class="bg-luxury-accentPurple/20 text-luxury-accentPurple px-2.5 py-0.5 rounded-full">Branding</span>
+                        <span>•</span>
+                        <span>98% complete</span>
+                    </div>
+
+                    <!-- Visual Project Chart Mockup -->
+                    <div class="h-20 bg-white/5 rounded-xl flex items-end justify-between p-3 border border-white/5 gap-2">
+                        <div class="w-full bg-luxury-accentBlue/40 h-[40%] rounded-sm"></div>
+                        <div class="w-full bg-luxury-accentPurple/50 h-[65%] rounded-sm"></div>
+                        <div class="w-full bg-luxury-accentCyan/40 h-[50%] rounded-sm"></div>
+                        <div class="w-full bg-luxury-accentPurple h-[90%] rounded-sm"></div>
+                        <div class="w-full bg-gradient-to-t from-luxury-accentBlue to-luxury-accentCyan h-[75%] rounded-sm"></div>
+                    </div>
+
+                    <div class="flex items-center justify-between mt-6">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 rounded-full border border-luxury-charcoal bg-gray-600 flex items-center justify-center text-[10px] font-bold">JD</div>
+                            <div class="w-8 h-8 rounded-full border border-luxury-charcoal bg-indigo-600 flex items-center justify-center text-[10px] font-bold">MK</div>
+                            <div class="w-8 h-8 rounded-full border border-luxury-charcoal bg-teal-600 flex items-center justify-center text-[10px] font-bold">AL</div>
+                        </div>
+                        <button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                            <i data-lucide="plus" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mini Orbit Floating Stats Box 1 -->
+                <div class="absolute top-[10%] right-[0%] sm:-right-4 glass rounded-2xl p-4 border border-white/10 shadow-lg animate-float-reverse z-30 flex items-center space-x-3">
+                    <div class="p-2.5 bg-emerald-500/10 rounded-xl text-emerald-400">
+                        <i data-lucide="trending-up" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Conversion rate</p>
+                        <p class="font-display font-bold text-base text-white">+142%</p>
+                    </div>
+                </div>
+
+                <!-- Mini Orbit Floating Info Box 2 -->
+                <div class="absolute bottom-[10%] left-[0%] sm:-left-4 glass rounded-2xl p-4 border border-white/10 shadow-lg animate-float z-30 flex items-center space-x-3">
+                    <div class="p-2.5 bg-luxury-accentBlue/10 rounded-xl text-luxury-accentBlue">
+                        <i data-lucide="zap" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-wider font-mono">Performance</p>
+                        <p class="font-display font-bold text-base text-white">99/100</p>
+                    </div>
+                </div>
+
+                <!-- Abstract Vector Shape Behind Stack -->
+                <div class="w-80 h-80 rounded-full border border-dashed border-white/10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-spin-slow"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TRUSTED CLIENTS / LOGOS SECTION -->
+    <section class="py-16 border-t border-b border-white/5 relative bg-luxury-charcoal/40">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <p class="text-center text-xs tracking-widest uppercase text-gray-500 font-mono mb-10">Pioneering products alongside outstanding global partners</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center opacity-60">
+                <!-- Logo 1 (Sleek CSS/Vector designs) -->
+                <div class="flex items-center space-x-2 text-white/80 hover:text-white transition-colors cursor-pointer">
+                    <i data-lucide="layers" class="w-5 h-5 text-luxury-accentBlue"></i>
+                    <span class="font-display font-bold tracking-tight text-lg">POLYMORPH</span>
+                </div>
+                <!-- Logo 2 -->
+                <div class="flex items-center space-x-2 text-white/80 hover:text-white transition-colors cursor-pointer">
+                    <i data-lucide="hexagon" class="w-5 h-5 text-luxury-accentPurple"></i>
+                    <span class="font-display font-bold tracking-tight text-lg">HEXALINK</span>
+                </div>
+                <!-- Logo 3 -->
+                <div class="flex items-center space-x-2 text-white/80 hover:text-white transition-colors cursor-pointer">
+                    <i data-lucide="activity" class="w-5 h-5 text-luxury-accentCyan"></i>
+                    <span class="font-display font-bold tracking-tight text-lg">VITALIC</span>
+                </div>
+                <!-- Logo 4 -->
+                <div class="flex items-center space-x-2 text-white/80 hover:text-white transition-colors cursor-pointer">
+                    <i data-lucide="globe" class="w-5 h-5 text-luxury-accentBlue"></i>
+                    <span class="font-display font-bold tracking-tight text-lg">NEBULA</span>
+                </div>
+                <!-- Logo 5 -->
+                <div class="flex items-center space-x-2 text-white/80 hover:text-white transition-colors cursor-pointer">
+                    <i data-lucide="triangle" class="w-5 h-5 text-luxury-accentPurple"></i>
+                    <span class="font-display font-bold tracking-tight text-lg">APEX</span>
+                </div>
+                <!-- Logo 6 -->
+                <div class="flex items-center space-x-2 text-white/80 hover:text-white transition-colors cursor-pointer">
+                    <i data-lucide="box" class="w-5 h-5 text-luxury-accentCyan"></i>
+                    <span class="font-display font-bold tracking-tight text-lg">CUBIC</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 relative overflow-hidden px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            <!-- Left Info Visual Grid (5/12) -->
+            <div class="lg:col-span-5 grid grid-cols-2 gap-4 relative">
+                <div class="absolute -top-12 -left-12 w-48 h-48 bg-luxury-accentPurple/20 blur-3xl rounded-full"></div>
+                
+                <div class="space-y-4">
+                    <div class="glass p-6 rounded-2xl border border-white/10 hover:border-luxury-accentBlue/30 transition-all duration-300">
+                        <p class="text-4xl font-display font-extrabold text-white mb-1">08+</p>
+                        <p class="text-xs uppercase text-gray-400 tracking-wider">Years Experience</p>
+                    </div>
+                    <div class="glass p-6 rounded-2xl border border-white/10 hover:border-luxury-accentPurple/30 transition-all duration-300 transform translate-y-4">
+                        <p class="text-4xl font-display font-extrabold text-white mb-1">98%</p>
+                        <p class="text-xs uppercase text-gray-400 tracking-wider">Client Retention</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="glass p-6 rounded-2xl border border-white/10 hover:border-luxury-accentCyan/30 transition-all duration-300 transform -translate-y-4">
+                        <p class="text-4xl font-display font-extrabold text-white mb-1">100+</p>
+                        <p class="text-xs uppercase text-gray-400 tracking-wider">Digital Awards</p>
+                    </div>
+                    <div class="glass p-6 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-300">
+                        <p class="text-4xl font-display font-extrabold text-white mb-1">24M</p>
+                        <p class="text-xs uppercase text-gray-400 tracking-wider">SaaS Users Helped</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Core Copy Column (7/12) -->
+            <div class="lg:col-span-7 flex flex-col space-y-6 reveal-up">
+                <span class="text-xs font-mono uppercase tracking-widest text-luxury-accentBlue">THE AURA STORY</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+                    Crafting premium interfaces for tomorrow's market leaders.
+                </h2>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    At AURA, we believe that world-class design is not just a coat of paint—it is an engine of hyper-growth. We work closely with scaling high-growth SaaS startups and iconic legacy enterprises to create bespoke visual experiences.
+                </p>
+                <p class="text-gray-400 text-lg leading-relaxed">
+                    Our unified model integrates cutting-edge aesthetic engineering with ultra-premium user experiences. We are small, lethal, hyper-focused, and unapologetic about perfection.
+                </p>
+                
+                <!-- Bullet highlights -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-luxury-accentBlue/10 flex items-center justify-center text-luxury-accentBlue">
+                            <i data-lucide="check" class="w-4 h-4"></i>
+                        </div>
+                        <span class="text-sm font-medium text-white">Elite Design-First Ethos</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-luxury-accentPurple/10 flex items-center justify-center text-luxury-accentPurple">
+                            <i data-lucide="check" class="w-4 h-4"></i>
+                        </div>
+                        <span class="text-sm font-medium text-white">Performant & High-FPS Code</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-luxury-accentCyan/10 flex items-center justify-center text-luxury-accentCyan">
+                            <i data-lucide="check" class="w-4 h-4"></i>
+                        </div>
+                        <span class="text-sm font-medium text-white">Scalable Design Systems</span>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-300">
+                            <i data-lucide="check" class="w-4 h-4"></i>
+                        </div>
+                        <span class="text-sm font-medium text-white">Direct Access to Founders</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="py-24 bg-luxury-charcoal/30 relative px-6 lg:px-12">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-luxury-accentPurple/5 to-transparent pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-16 gap-4">
+                <div class="max-w-xl">
+                    <span class="text-xs font-mono uppercase tracking-widest text-luxury-accentPurple">capabilities</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white mt-2">
+                        Bespoke services engineered for premium results.
+                    </h2>
+                </div>
+                <p class="text-gray-400 text-base max-w-sm font-light">
+                    We cover the full product design lifecycle, optimizing every detail to yield unprecedented conversion and brand equity.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Service Card 1 -->
+                <div class="glass-premium p-8 rounded-3xl border border-white/5 hover:border-luxury-accentBlue/30 transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden gpu-layer">
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-luxury-accentBlue/10 rounded-full blur-2xl group-hover:bg-luxury-accentBlue/20 transition-all duration-500"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-luxury-accentBlue/10 flex items-center justify-center text-luxury-accentBlue mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="layout" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white mb-3">UI/UX Product Design</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        We model gorgeous, intuitive web and mobile platforms centered on real user behavior, building comprehensive design systems for future iteration.
+                    </p>
+                    <ul class="text-xs text-gray-300 space-y-2 font-mono">
+                        <li class="flex items-center space-x-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-luxury-accentBlue"></span>
+                            <span>Interactive Wireframing</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-luxury-accentBlue"></span>
+                            <span>Cross-platform UI design</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="glass-premium p-8 rounded-3xl border border-white/5 hover:border-luxury-accentPurple/30 transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden gpu-layer">
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-luxury-accentPurple/10 rounded-full blur-2xl group-hover:bg-luxury-accentPurple/20 transition-all duration-500"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-luxury-accentPurple/10 flex items-center justify-center text-luxury-accentPurple mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="pocket-knife" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white mb-3">Premium Brand Strategy</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Unearth a core identity that magnetizes premier clients. We craft fully-responsive visual identities, core stories, guidelines, and assets.
+                    </p>
+                    <ul class="text-xs text-gray-300 space-y-2 font-mono">
+                        <li class="flex items-center space-x-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-luxury-accentPurple"></span>
+                            <span>Bespoke Typography Sets</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-luxury-accentPurple"></span>
+                            <span>Modern Brand Guidelines</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="glass-premium p-8 rounded-3xl border border-white/5 hover:border-luxury-accentCyan/30 transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden gpu-layer">
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-luxury-accentCyan/10 rounded-full blur-2xl group-hover:bg-luxury-accentCyan/20 transition-all duration-500"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-luxury-accentCyan/10 flex items-center justify-center text-luxury-accentCyan mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white mb-3">Aesthetic Frontend Dev</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Pixel-perfect, ultra-fast web interfaces written by elite front-end engineers. Built on headless frameworks for instant page loading speeds.
+                    </p>
+                    <ul class="text-xs text-gray-300 space-y-2 font-mono">
+                        <li class="flex items-center space-x-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-luxury-accentCyan"></span>
+                            <span>Headless Architecture</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-luxury-accentCyan"></span>
+                            <span>Optimized WebGL & CSS</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="glass-premium p-8 rounded-3xl border border-white/5 hover:border-white/20 transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden gpu-layer">
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-all duration-500"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="sparkles" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white mb-3">Motion Design & Assets</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        We integrate luxury motion sequences and interactive features that communicate complex technologies with remarkable clarity and weight.
+                    </p>
+                    <ul class="text-xs text-gray-300 space-y-2 font-mono">
+                        <li class="flex items-center space-x-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                            <span>Interactive Interactive Demos</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                            <span>Micro-interaction Libraries</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="glass-premium p-8 rounded-3xl border border-white/5 hover:border-luxury-accentBlue/30 transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden gpu-layer">
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-luxury-accentBlue/10 rounded-full blur-2xl group-hover:bg-luxury-accentBlue/20 transition-all duration-500"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-luxury-accentBlue/10 flex items-center justify-center text-luxury-accentBlue mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="line-chart" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white mb-3">Conversion Rate Opt.</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Data-driven strategy to convert digital impressions to loyal accounts. Rigorous A/B structure tests, heatmapping, and behavior tracking.
+                    </p>
+                    <ul class="text-xs text-gray-300 space-y-2 font-mono">
+                        <li class="flex items-center space-x-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-luxury-accentBlue"></span>
+                            <span>Funnel Architecture</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-luxury-accentBlue"></span>
+                            <span>Behavior Flow Diagnostics</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="glass-premium p-8 rounded-3xl border border-white/5 hover:border-luxury-accentPurple/30 transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden gpu-layer">
+                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-luxury-accentPurple/10 rounded-full blur-2xl group-hover:bg-luxury-accentPurple/20 transition-all duration-500"></div>
+                    <div class="w-12 h-12 rounded-2xl bg-luxury-accentPurple/10 flex items-center justify-center text-luxury-accentPurple mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="rocket" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white mb-3">Continuous Evolution</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        We provide an premium dedicated team that constantly audits, adjusts, and designs monthly updates for your scaling brand ecosystem.
+                    </p>
+                    <ul class="text-xs text-gray-300 space-y-2 font-mono">
+                        <li class="flex items-center space-x-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-luxury-accentPurple"></span>
+                            <span>Priority Task Delivery</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="w-1.5 h-1.5 rounded-full bg-luxury-accentPurple"></span>
+                            <span>Continuous Testing & Growth</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio" class="py-24 relative px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header area & interactive category filters -->
+            <div class="flex flex-col xl:flex-row xl:items-end justify-between mb-16 gap-8">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-widest text-luxury-accentCyan">our masterpieces</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white mt-2">
+                        Bespoke products shaping user decisions.
+                    </h2>
+                </div>
+                
+                <!-- Category Filters (Fully Functional JS Powered) -->
+                <div class="flex flex-wrap gap-2.5">
+                    <button class="portfolio-filter-btn active px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase border bg-white text-luxury-black border-white transition-all duration-300" data-filter="all">All Projects</button>
+                    <button class="portfolio-filter-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase border border-white/10 hover:border-white/30 text-gray-400 hover:text-white bg-transparent transition-all duration-300" data-filter="product">Product Design</button>
+                    <button class="portfolio-filter-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase border border-white/10 hover:border-white/30 text-gray-400 hover:text-white bg-transparent transition-all duration-300" data-filter="brand">Branding</button>
+                    <button class="portfolio-filter-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase border border-white/10 hover:border-white/30 text-gray-400 hover:text-white bg-transparent transition-all duration-300" data-filter="dev">Development</button>
+                </div>
+            </div>
+
+            <!-- Portfolio Grid (Masonry look, robust and responsive) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="portfolio-grid">
+                
+                <!-- Project 1 -->
+                <div class="portfolio-item group glass-premium rounded-3xl overflow-hidden border border-white/5 hover:border-luxury-accentBlue/30 transition-all duration-500 flex flex-col justify-between" data-category="product">
+                    <!-- Project Preview Mockup (Built cleanly with SVG and pure CSS, eliminating slow images) -->
+                    <div class="relative aspect-[16/10] bg-gradient-to-tr from-luxury-black to-slate-900 flex items-center justify-center p-8 overflow-hidden">
+                        <!-- Abstract Glassmorphism UI within image to demonstrate ultimate UI style -->
+                        <div class="w-full h-full glass rounded-2xl p-4 border border-white/10 shadow-2xl relative transform group-hover:scale-[1.03] transition-transform duration-500 flex flex-col justify-between">
+                            <div class="flex items-center justify-between border-b border-white/5 pb-2">
+                                <span class="font-bold text-[10px] tracking-wider text-luxury-accentBlue">NEXUS PLATFORM</span>
+                                <span class="text-[9px] text-gray-500">v4.12 Live</span>
+                            </div>
+                            <!-- Mock Data Visualization -->
+                            <div class="my-auto space-y-3">
+                                <div class="h-1 w-1/3 bg-luxury-accentBlue rounded"></div>
+                                <div class="h-6 w-full bg-white/5 rounded-lg flex items-center justify-between px-3">
+                                    <div class="flex items-center space-x-2">
+                                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                        <span class="text-[9px] text-gray-300">Active server processing</span>
+                                    </div>
+                                    <span class="text-[9px] font-mono text-emerald-400">99.98%</span>
+                                </div>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <div class="h-10 bg-white/5 rounded-lg border border-white/5"></div>
+                                    <div class="h-10 bg-white/5 rounded-lg border border-white/5"></div>
+                                    <div class="h-10 bg-luxury-accentBlue/20 rounded-lg border border-luxury-accentBlue/30"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Details Info Footer -->
+                    <div class="p-8 border-t border-white/5 bg-luxury-charcoal/40">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs uppercase font-mono tracking-widest text-luxury-accentBlue">Product Design</span>
+                            <span class="text-xs text-gray-500 font-mono">2026</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl text-white group-hover:text-luxury-accentBlue transition-colors">Nexus AI Dashboard</h3>
+                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                            A highly optimized enterprise command center for massive AI pipelines, scaling speed by 140%.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="portfolio-item group glass-premium rounded-3xl overflow-hidden border border-white/5 hover:border-luxury-accentPurple/30 transition-all duration-500 flex flex-col justify-between" data-category="brand">
+                    <div class="relative aspect-[16/10] bg-gradient-to-tr from-luxury-black to-purple-950/40 flex items-center justify-center p-8 overflow-hidden">
+                        <div class="w-full h-full glass rounded-2xl p-4 border border-white/10 shadow-2xl relative transform group-hover:scale-[1.03] transition-transform duration-500 flex flex-col items-center justify-center">
+                            <!-- Geometric abstract brand symbol -->
+                            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-luxury-accentPurple to-luxury-accentBlue flex items-center justify-center p-0.5">
+                                <div class="w-full h-full bg-luxury-black rounded-full flex items-center justify-center">
+                                    <i data-lucide="infinity" class="w-10 h-10 text-white animate-pulse"></i>
+                                </div>
+                            </div>
+                            <span class="font-display font-black text-xl tracking-widest text-white mt-4">KRONOS</span>
+                        </div>
+                    </div>
+                    <div class="p-8 border-t border-white/5 bg-luxury-charcoal/40">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs uppercase font-mono tracking-widest text-luxury-accentPurple">Identity & Brand</span>
+                            <span class="text-xs text-gray-500 font-mono">2026</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl text-white group-hover:text-luxury-accentPurple transition-colors">Kronos Smart Ledger</h3>
+                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                            Bespoke visual identity system and digital design direction for a sovereign high-speed ledger.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="portfolio-item group glass-premium rounded-3xl overflow-hidden border border-white/5 hover:border-luxury-accentCyan/30 transition-all duration-500 flex flex-col justify-between" data-category="dev">
+                    <div class="relative aspect-[16/10] bg-gradient-to-tr from-luxury-black to-cyan-950/40 flex items-center justify-center p-8 overflow-hidden">
+                        <div class="w-full h-full glass rounded-2xl p-4 border border-white/10 shadow-2xl relative transform group-hover:scale-[1.03] transition-transform duration-500 flex flex-col justify-between font-mono">
+                            <div class="flex items-center justify-between text-[10px] text-luxury-accentCyan border-b border-white/5 pb-2">
+                                <span>TERMINAL SYSTEM</span>
+                                <span class="animate-pulse">● online</span>
+                            </div>
+                            <div class="my-auto space-y-1 text-[9px] text-gray-400">
+                                <p class="text-white">&gt; npm run build:production</p>
+                                <p class="text-gray-500">&gt; compiling design tokens...</p>
+                                <p class="text-luxury-accentCyan">&gt; assets optimized successfully [32ms]</p>
+                                <p class="text-emerald-400">&gt; lighthouse performance: 100/100</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 border-t border-white/5 bg-luxury-charcoal/40">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs uppercase font-mono tracking-widest text-luxury-accentCyan">Aesthetic Dev</span>
+                            <span class="text-xs text-gray-500 font-mono">2026</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl text-white group-hover:text-luxury-accentCyan transition-colors">Vortex High-FPS Website</h3>
+                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                            Redefining interactive capabilities. Fluid animations built using optimized CSS transforms running at a steady 60 FPS.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="portfolio-item group glass-premium rounded-3xl overflow-hidden border border-white/5 hover:border-white/20 transition-all duration-500 flex flex-col justify-between" data-category="product">
+                    <div class="relative aspect-[16/10] bg-gradient-to-tr from-luxury-black to-stone-900 flex items-center justify-center p-8 overflow-hidden">
+                        <div class="w-full h-full glass rounded-2xl p-4 border border-white/10 shadow-2xl relative transform group-hover:scale-[1.03] transition-transform duration-500 flex flex-col justify-between">
+                            <div class="flex items-center justify-between">
+                                <div class="w-8 h-8 rounded bg-white/5"></div>
+                                <div class="h-4 w-12 bg-white/5 rounded"></div>
+                            </div>
+                            <div class="space-y-2 mt-4">
+                                <div class="h-3 w-3/4 bg-white/15 rounded"></div>
+                                <div class="h-2 w-1/2 bg-white/5 rounded"></div>
+                            </div>
+                            <div class="flex justify-end mt-4">
+                                <div class="h-8 w-8 rounded-full bg-white text-luxury-black flex items-center justify-center font-bold text-xs">A</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-8 border-t border-white/5 bg-luxury-charcoal/40">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs uppercase font-mono tracking-widest text-gray-400">UX Design</span>
+                            <span class="text-xs text-gray-500 font-mono">2026</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl text-white group-hover:text-white transition-colors">Aero Mobile Wallet</h3>
+                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">
+                            Bespoke mobile payment interface focusing on extreme simplification, reducing user click steps by 45%.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR PROCESS SECTION (Interactive Timeline Storytelling) -->
+    <section id="process" class="py-24 bg-luxury-charcoal/30 relative px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-mono uppercase tracking-widest text-luxury-accentBlue">execution method</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white mt-2">
+                    Our relentless pursuit of visual perfection.
+                </h2>
+                <p class="text-gray-400 mt-4 font-light">
+                    Every step of our collaborative workflow is built to ensure clarity, flawless aesthetic precision, and immediate growth.
+                </p>
+            </div>
+
+            <!-- Steps Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                <!-- Step 1 -->
+                <div class="glass p-8 rounded-3xl border border-white/5 relative group hover:border-luxury-accentBlue/20 transition-all duration-300">
+                    <span class="absolute right-6 top-6 text-5xl font-display font-black text-white/5 group-hover:text-luxury-accentBlue/10 transition-colors">01</span>
+                    <div class="w-10 h-10 rounded-xl bg-luxury-accentBlue/15 flex items-center justify-center text-luxury-accentBlue mb-6">
+                        <i data-lucide="compass" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Deep Discovery</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        We immerse ourselves in your corporate vision, brand requirements, users, and competitive landscape.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="glass p-8 rounded-3xl border border-white/5 relative group hover:border-luxury-accentPurple/20 transition-all duration-300">
+                    <span class="absolute right-6 top-6 text-5xl font-display font-black text-white/5 group-hover:text-luxury-accentPurple/10 transition-colors">02</span>
+                    <div class="w-10 h-10 rounded-xl bg-luxury-accentPurple/15 flex items-center justify-center text-luxury-accentPurple mb-6">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">System Design</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Before making layouts, we construct a cohesive design system (colors, layout rules, interactive states).
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="glass p-8 rounded-3xl border border-white/5 relative group hover:border-luxury-accentCyan/20 transition-all duration-300">
+                    <span class="absolute right-6 top-6 text-5xl font-display font-black text-white/5 group-hover:text-luxury-accentCyan/10 transition-colors">03</span>
+                    <div class="w-10 h-10 rounded-xl bg-luxury-accentCyan/15 flex items-center justify-center text-luxury-accentCyan mb-6">
+                        <i data-lucide="sparkles" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Aesthetic Craft</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        We develop high-fidelity user flows and premium responsive pages that instantly differentiate your brand.
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="glass p-8 rounded-3xl border border-white/5 relative group hover:border-white/10 transition-all duration-300">
+                    <span class="absolute right-6 top-6 text-5xl font-display font-black text-white/5 group-hover:text-white/10 transition-colors">04</span>
+                    <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white mb-6">
+                        <i data-lucide="check-circle" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Smooth Launch</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Flawless transition to deployment, optimized for lighting speeds, fully indexed SEO, and detailed metrics tracking.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="py-24 relative px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            <div class="lg:col-span-6 space-y-6">
+                <span class="text-xs font-mono uppercase tracking-widest text-luxury-accentCyan">our philosophy</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+                    Why the world's most innovative builders trust us.
+                </h2>
+                <p class="text-gray-400 text-base leading-relaxed">
+                    We don't settle for mediocre template layouts or boilerplate landing pages. We build distinct, interactive digital artifacts optimized specifically for conversion.
+                </p>
+
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-xl bg-luxury-accentBlue/10 flex items-center justify-center text-luxury-accentBlue shrink-0 mt-1">
+                            <i data-lucide="heart" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">Uncompromising Detail</h4>
+                            <p class="text-xs text-gray-400 mt-1">Every element—from micro-interaction sounds, custom easing vectors, to responsive margins—is carefully adjusted.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-xl bg-luxury-accentPurple/10 flex items-center justify-center text-luxury-accentPurple shrink-0 mt-1">
+                            <i data-lucide="zap" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">Guaranteed Fast Speeds</h4>
+                            <p class="text-xs text-gray-400 mt-1">We optimize code to ensure flawless responsiveness. Our pages achieve peak performance grades without sacrifices.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-xl bg-luxury-accentCyan/10 flex items-center justify-center text-luxury-accentCyan shrink-0 mt-1">
+                            <i data-lucide="shield" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white">Secure, Scale-Ready Stack</h4>
+                            <p class="text-xs text-gray-400 mt-1">All design solutions are delivered inside solid, battle-tested modern frameworks prepared for millions of actions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sleek Glass Card Composition (Right Side) -->
+            <div class="lg:col-span-6 relative flex items-center justify-center h-[500px]">
+                <!-- Abstract central node layout -->
+                <div class="absolute w-[340px] glass rounded-3xl p-6 border border-white/10 shadow-2xl relative z-10 animate-float">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-luxury-accentBlue to-luxury-accentCyan flex items-center justify-center font-bold text-xs text-white">A</div>
+                        <div>
+                            <p class="text-xs font-bold text-white">AURA Premium Design System</p>
+                            <p class="text-[9px] text-gray-400">Published 2 hours ago</p>
+                        </div>
+                    </div>
+                    <!-- Mock component grid inside design system showcase -->
+                    <div class="space-y-3">
+                        <div class="p-3 bg-white/5 rounded-xl border border-white/5 flex items-center justify-between">
+                            <span class="text-[11px] text-gray-300 font-mono">Input:active</span>
+                            <div class="w-20 h-5 rounded-full border border-luxury-accentBlue bg-luxury-accentBlue/20"></div>
+                        </div>
+                        <div class="p-3 bg-white/5 rounded-xl border border-white/5 flex items-center justify-between">
+                            <span class="text-[11px] text-gray-300 font-mono">Button:hover</span>
+                            <div class="w-20 h-5 rounded-full bg-white text-luxury-black font-bold text-[9px] text-center flex items-center justify-center">Hover me</div>
+                        </div>
+                        <div class="p-3 bg-white/5 rounded-xl border border-white/5 flex items-center justify-between">
+                            <span class="text-[11px] text-gray-300 font-mono">Toast:success</span>
+                            <div class="flex items-center space-x-1.5 text-emerald-400">
+                                <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+                                <span class="text-[9px]">Saved progress</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abstract Light Glows -->
+                <div class="absolute top-[20%] left-[20%] w-64 h-64 bg-luxury-accentPurple/20 blur-3xl rounded-full"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INTERACTIVE PROJECT ESTIMATOR (Framer Style Budget Calculator) -->
+    <section id="estimator" class="py-24 bg-luxury-charcoal/30 relative px-6 lg:px-12">
+        <div class="max-w-4xl mx-auto glass-premium rounded-[32px] p-8 md:p-12 border border-white/10 relative z-10 overflow-hidden">
+            <div class="absolute -top-12 -right-12 w-64 h-64 bg-luxury-accentCyan/10 blur-3xl rounded-full"></div>
+            
+            <!-- Estimator Header -->
+            <div class="mb-10 text-center md:text-left">
+                <span class="text-xs font-mono uppercase tracking-widest text-luxury-accentCyan">Interactive Project Calculator</span>
+                <h2 class="font-display text-2xl sm:text-4xl font-bold tracking-tight text-white mt-1">Estimate your investment instanly.</h2>
+                <p class="text-gray-400 text-sm mt-2 max-w-xl">Configure your scope below to calculate a transparent ballpark quote. We value upfront clarity over hidden negotiations.</p>
+            </div>
+
+            <!-- Form Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- Selectable Interactive Fields -->
+                <div class="space-y-6">
+                    <!-- Project Scope Type Selection -->
+                    <div>
+                        <label class="text-xs font-mono uppercase tracking-widest text-gray-400 block mb-3">Project Scope</label>
+                        <div class="grid grid-cols-1 gap-2.5" id="scope-selection-box">
+                            <button type="button" class="scope-btn p-3.5 rounded-xl border text-left flex items-center justify-between transition-all duration-300 active border-luxury-accentBlue bg-luxury-accentBlue/15" data-cost="5000" data-label="Full Branding Design">
+                                <span class="text-sm font-semibold text-white">Full Branding Design</span>
+                                <span class="text-xs text-luxury-accentBlue font-mono">$5,000+</span>
+                            </button>
+                            <button type="button" class="scope-btn p-3.5 rounded-xl border border-white/5 text-left flex items-center justify-between transition-all duration-300 hover:bg-white/5" data-cost="10000" data-label="Bespoke SaaS UI/UX Design">
+                                <span class="text-sm font-semibold text-white">Bespoke SaaS UI/UX Design</span>
+                                <span class="text-xs text-luxury-accentPurple font-mono">$10,000+</span>
+                            </button>
+                            <button type="button" class="scope-btn p-3.5 rounded-xl border border-white/5 text-left flex items-center justify-between transition-all duration-300 hover:bg-white/5" data-cost="12000" data-label="UI/UX + Headless Frontend Dev">
+                                <span class="text-sm font-semibold text-white">UI/UX + Headless Frontend Dev</span>
+                                <span class="text-xs text-luxury-accentCyan font-mono">$12,000+</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Custom Timeline Slider -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-xs font-mono uppercase tracking-widest text-gray-400">Delivery Speed</label>
+                            <span class="text-xs font-bold text-white font-mono" id="slider-speed-label">Standard (6-8 Weeks)</span>
+                        </div>
+                        <input type="range" id="timeline-slider" min="1" max="3" value="2" class="w-full accent-luxury-accentPurple h-1 bg-white/10 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-[10px] text-gray-500 font-mono mt-2">
+                            <span>EXPRESS</span>
+                            <span>STANDARD</span>
+                            <span>FLEXIBLE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Pricing Results Output Glass Box -->
+                <div class="glass p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xs font-mono uppercase tracking-widest text-gray-400 mb-6">Investment Estimate</h4>
+                        
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center text-sm border-b border-white/5 pb-2">
+                                <span class="text-gray-400">Selected Core Scope</span>
+                                <span class="text-white font-medium" id="est-scope-label">Full Branding Design</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm border-b border-white/5 pb-2">
+                                <span class="text-gray-400">Delivery modifier</span>
+                                <span class="text-white font-medium" id="est-speed-mod">x1.0</span>
+                            </div>
+                        </div>
+
+                        <!-- Big Dynamic Price Counter -->
+                        <div class="mt-8 text-center md:text-left">
+                            <p class="text-4xl md:text-5xl font-display font-extrabold text-white tracking-tight" id="dynamic-price-display">$5,000</p>
+                            <p class="text-[10px] text-gray-500 font-mono mt-1">ESTIMATED BALLPARK BALLPARK TOTAL</p>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="mt-8 w-full block py-4 bg-white text-luxury-black font-bold text-sm text-center rounded-xl hover:bg-transparent hover:text-white border border-white transition-all duration-300">
+                        Book Strategy Call
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-24 relative px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-xl mx-auto mb-16">
+                <span class="text-xs font-mono uppercase tracking-widest text-luxury-accentPurple">word of mouth</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white mt-2">
+                    Client feedback confirming our quality.
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass p-8 rounded-3xl border border-white/5 hover:border-white/15 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 mb-6 text-yellow-400">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed italic">
+                            "Working with AURA has been a complete paradigm shift for our branding. They restructured our application suite's flow, driving absolute ease-of-use. Our sign-ups immediately went up by 74% within 1 month."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-8 pt-6 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-luxury-accentBlue to-luxury-accentCyan flex items-center justify-center font-bold text-xs text-white">MK</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-white">Marc Kael</h4>
+                            <p class="text-[10px] text-gray-400 font-mono uppercase">CEO, HEXALINK SaaS</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass p-8 rounded-3xl border border-white/5 hover:border-white/15 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 mb-6 text-yellow-400">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed italic">
+                            "AURA proved to be the ultimate asset for our platform launch. Their understanding of motion typography and design rules resulted in an elegant web experience that secured our Series-A investors instantly."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-8 pt-6 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-luxury-accentPurple to-luxury-accentCyan flex items-center justify-center font-bold text-xs text-white">EL</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-white">Elena Lopez</h4>
+                            <p class="text-[10px] text-gray-400 font-mono uppercase">VP of Product, APEX App</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass p-8 rounded-3xl border border-white/5 hover:border-white/15 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center space-x-1 mb-6 text-yellow-400">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed italic">
+                            "Most agencies design flashy things that render terribly slowly. AURA represents the gold standard: breathtaking UI elements engineered on clean, superfast layouts that render flawless 60 FPS on any device."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-8 pt-6 border-t border-white/5">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-luxury-accentBlue to-luxury-accentPurple flex items-center justify-center font-bold text-xs text-white">TD</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-white">Tyler Dewitt</h4>
+                            <p class="text-[10px] text-gray-400 font-mono uppercase">Engineering Director, Vital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AWARDS / ACHIEVEMENTS -->
+    <section class="py-20 bg-luxury-charcoal/30 border-t border-b border-white/5 relative px-6 lg:px-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="max-w-md text-center md:text-left">
+                <span class="text-xs font-mono uppercase tracking-widest text-luxury-accentCyan font-semibold">industry awards</span>
+                <h3 class="font-display text-2xl sm:text-4xl font-bold tracking-tight text-white mt-2">Acknowleged by top-tier publishers.</h3>
+            </div>
+            
+            <div class="flex-1 max-w-2xl w-full grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="p-6 glass rounded-2xl flex items-center justify-between border border-white/5">
+                    <div>
+                        <p class="text-xs text-gray-400 font-mono">AWWWARDS</p>
+                        <p class="text-sm font-bold text-white mt-1">Site of the Day x4</p>
+                    </div>
+                    <span class="text-luxury-accentBlue font-display font-bold text-xl">2026</span>
+                </div>
+                <div class="p-6 glass rounded-2xl flex items-center justify-between border border-white/5">
+                    <div>
+                        <p class="text-xs text-gray-400 font-mono">FWA AWARDS</p>
+                        <p class="text-sm font-bold text-white mt-1">Innovative Concept</p>
+                    </div>
+                    <span class="text-luxury-accentPurple font-display font-bold text-xl">2025</span>
+                </div>
+                <div class="p-6 glass rounded-2xl flex items-center justify-between border border-white/5">
+                    <div>
+                        <p class="text-xs text-gray-400 font-mono">CSS DESIGN AWARDS</p>
+                        <p class="text-sm font-bold text-white mt-1">Best UI/UX Award</p>
+                    </div>
+                    <span class="text-luxury-accentCyan font-display font-bold text-xl">2026</span>
+                </div>
+                <div class="p-6 glass rounded-2xl flex items-center justify-between border border-white/5">
+                    <div>
+                        <p class="text-xs text-gray-400 font-mono">BEHANCE GOLDEN</p>
+                        <p class="text-sm font-bold text-white mt-1">Visual Excellence</p>
+                    </div>
+                    <span class="text-white/60 font-display font-bold text-xl">2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION (Clean Interactive Accordions) -->
+    <section id="faq" class="py-24 relative px-6 lg:px-12">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs font-mono uppercase tracking-widest text-luxury-accentBlue">Questions & clarity</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white mt-2">
+                    Answering core process concerns.
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="glass rounded-2xl border border-white/5 overflow-hidden transition-all duration-300">
+                    <button class="faq-toggle-btn w-full p-6 text-left flex items-center justify-between focus:outline-none" aria-expanded="false">
+                        <span class="font-bold text-base md:text-lg text-white">How much do projects typically cost?</span>
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white shrink-0 transition-transform duration-300 toggle-icon">
+                            <i data-lucide="plus" class="w-4 h-4"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="p-6 pt-0 border-t border-white/5 text-gray-400 text-sm leading-relaxed">
+                            Our standard engagements range from $5k up to $40k+ depending on complexity. Use our interactive estimator above for immediate baseline transparency, or schedule a strategy call to break down custom design challenges.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="glass rounded-2xl border border-white/5 overflow-hidden transition-all duration-300">
+                    <button class="faq-toggle-btn w-full p-6 text-left flex items-center justify-between focus:outline-none" aria-expanded="false">
+                        <span class="font-bold text-base md:text-lg text-white">Who handles the actual work?</span>
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white shrink-0 transition-transform duration-300 toggle-icon">
+                            <i data-lucide="plus" class="w-4 h-4"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="p-6 pt-0 border-t border-white/5 text-gray-400 text-sm leading-relaxed">
+                            We believe in premium execution over massive hierarchies. Your project is led directly by the agency founders and visual specialists, ensuring top-tier attention without account-manager lag.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="glass rounded-2xl border border-white/5 overflow-hidden transition-all duration-300">
+                    <button class="faq-toggle-btn w-full p-6 text-left flex items-center justify-between focus:outline-none" aria-expanded="false">
+                        <span class="font-bold text-base md:text-lg text-white">Do you assist with post-launch scale?</span>
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white shrink-0 transition-transform duration-300 toggle-icon">
+                            <i data-lucide="plus" class="w-4 h-4"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="p-6 pt-0 border-t border-white/5 text-gray-400 text-sm leading-relaxed">
+                            Absolutely. We provide dedicated monthly iteration slots to systematically improve performance metrics, run comprehensive multivariate diagnostics, and integrate beautiful visual assets.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="glass rounded-2xl border border-white/5 overflow-hidden transition-all duration-300">
+                    <button class="faq-toggle-btn w-full p-6 text-left flex items-center justify-between focus:outline-none" aria-expanded="false">
+                        <span class="font-bold text-base md:text-lg text-white">What is your turnaround timeframe?</span>
+                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white shrink-0 transition-transform duration-300 toggle-icon">
+                            <i data-lucide="plus" class="w-4 h-4"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="p-6 pt-0 border-t border-white/5 text-gray-400 text-sm leading-relaxed">
+                            A classic brand and SaaS framework launch takes between 4 to 8 weeks. Urgent express launches can be calibrated on request.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 bg-luxury-charcoal/30 relative px-6 lg:px-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 relative z-10">
+            
+            <!-- Left Contact Info (5/12) -->
+            <div class="lg:col-span-5 flex flex-col justify-between space-y-12">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-widest text-luxury-accentCyan">secure your launch slot</span>
+                    <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white mt-2">
+                        Let's build a digital powerhouse.
+                    </h2>
+                    <p class="text-gray-400 mt-4 leading-relaxed">
+                        Have an innovative project in mind? Shoot over details or schedule an active exploration call. Let's sculpt greatness.
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-2xl glass flex items-center justify-center text-luxury-accentBlue">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 font-mono">SECURE EMAIL</p>
+                            <p class="text-white font-semibold">partners@aura.design</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-2xl glass flex items-center justify-center text-luxury-accentPurple">
+                            <i data-lucide="phone-call" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 font-mono">STRATEGY LINE</p>
+                            <p class="text-white font-semibold">+1 (555) 019-3849</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-2xl glass flex items-center justify-center text-luxury-accentCyan">
+                            <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400 font-mono">GLOBAL HUB</p>
+                            <p class="text-white font-semibold">Karachi, PK // Remote</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-xs text-gray-500 font-mono">© 2026 AURA Studio Inc. All rights reserved.</p>
+            </div>
+
+            <!-- Right Interactive Form Area (7/12) -->
+            <div class="lg:col-span-7 glass-premium rounded-[32px] p-8 md:p-12 border border-white/10 relative">
+                
+                <!-- Simple Alert notification inside interface (Never utilize native browser alert) -->
+                <div id="contact-success-banner" class="hidden mb-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm flex items-center space-x-3">
+                    <i data-lucide="check-circle" class="w-5 h-5 shrink-0"></i>
+                    <span>Inquiry processed! Our director will secure your email within 2 hours.</span>
+                </div>
+
+                <form id="agency-contact-form" class="space-y-6" onsubmit="handleContactSubmit(event)">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="text-xs font-mono uppercase tracking-widest text-gray-400 block mb-2">FULL NAME</label>
+                            <input type="text" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-luxury-accentBlue transition-colors" placeholder="e.g. John Doe">
+                        </div>
+                        <div>
+                            <label class="text-xs font-mono uppercase tracking-widest text-gray-400 block mb-2">EMAIL ADDRESS</label>
+                            <input type="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-luxury-accentPurple transition-colors" placeholder="e.g. john@company.com">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="text-xs font-mono uppercase tracking-widest text-gray-400 block mb-2">COMPANY INTERNET ADDRESS (OPTIONAL)</label>
+                        <input type="text" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-luxury-accentCyan transition-colors" placeholder="e.g. www.company.com">
+                    </div>
+
+                    <div>
+                        <label class="text-xs font-mono uppercase tracking-widest text-gray-400 block mb-2">PROJECT GOALS / DETAILS</label>
+                        <textarea required rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-luxury-accentBlue transition-colors resize-none" placeholder="Describe the challenges we will solve together..."></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 rounded-xl font-bold text-sm text-center bg-gradient-to-r from-luxury-accentBlue via-luxury-accentPurple to-luxury-accentCyan text-white hover:opacity-95 transition-opacity flex items-center justify-center space-x-2">
+                        <span>Initialize Collaboration</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 border-t border-white/5 px-6 lg:px-12 bg-luxury-black text-center text-sm text-gray-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-2">
+                <div class="w-6 h-6 rounded bg-gradient-to-r from-luxury-accentBlue to-luxury-accentPurple flex items-center justify-center text-[10px] text-white font-bold">A</div>
+                <span class="font-display font-bold tracking-widest text-white text-base">AURA</span>
+            </div>
+            
+            <div class="flex items-center space-x-6">
+                <a href="#about" class="hover:text-white transition-colors">Privacy</a>
+                <a href="#services" class="hover:text-white transition-colors">Terms</a>
+                <a href="#portfolio" class="hover:text-white transition-colors">Twitter</a>
+                <a href="#contact" class="hover:text-white transition-colors">Dribbble</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE SCRIPTS (Pure performant optimizations) -->
+    <script>
+        // Init Lucide Icons instantly
+        lucide.createIcons();
+
+        // 1. PERFORMANCE FIRST - High-Speed Dynamic Glow Pointer
+        const pointerOrb = document.getElementById('glowing-cursor-orb');
+        let currentX = 0;
+        let currentY = 0;
+        let targetX = 0;
+        let targetY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+            targetX = e.clientX;
+            targetY = e.clientY;
+        }, { passive: true });
+
+        // Smooth tick loop (Interpolated for fluid motion)
+        function updatePointerPosition() {
+            currentX += (targetX - currentX) * 0.1;
+            currentY += (targetY - currentY) * 0.1;
+            pointerOrb.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate3d(-50%, -50%, 0)`;
+            requestAnimationFrame(updatePointerPosition);
+        }
+        requestAnimationFrame(updatePointerPosition);
+
+        // 2. NAV SCROLL SHADOW ACTION
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+            }
+        }, { passive: true });
+
+        // 3. INTERACTION TRIGGER - Mobile Menu Slide Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const menuPanel = document.getElementById('mobile-menu-panel');
+        menuBtn.addEventListener('click', () => {
+            menuPanel.classList.toggle('hidden');
+        });
+
+        // Close mobile panel on click of link
+        menuPanel.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuPanel.classList.add('hidden');
+            });
+        });
+
+        // 4. PORTFOLIO FILTER MECHANISM
+        const filterBtns = document.querySelectorAll('.portfolio-filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active states
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-white', 'text-luxury-black');
+                    b.classList.add('text-gray-400', 'bg-transparent', 'border-white/10');
+                });
+                btn.classList.add('active', 'bg-white', 'text-luxury-black');
+                btn.classList.remove('text-gray-400', 'bg-transparent', 'border-white/10');
+
+                const selectedFilter = btn.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (selectedFilter === 'all' || item.getAttribute('data-category') === selectedFilter) {
+                        item.style.display = 'flex';
+                        // Trigger rapid CSS opacity trigger
+                        setTimeout(() => { item.style.opacity = '1'; }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        setTimeout(() => { item.style.display = 'none'; }, 200);
+                    }
+                });
+            });
+        });
+
+        // 5. INTERACTIVE ESTIMATOR MECHANICS
+        const scopeBtns = document.querySelectorAll('.scope-btn');
+        const slider = document.getElementById('timeline-slider');
+        const speedLabel = document.getElementById('slider-speed-label');
+        
+        const estScopeLabel = document.getElementById('est-scope-label');
+        const estSpeedMod = document.getElementById('est-speed-mod');
+        const priceDisplay = document.getElementById('dynamic-price-display');
+
+        let activeBaseCost = 5000;
+        let activeScopeName = "Full Branding Design";
+        let activeSpeedModifier = 1.0;
+
+        scopeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Toggle active style states
+                scopeBtns.forEach(b => {
+                    b.classList.remove('active', 'border-luxury-accentBlue', 'bg-luxury-accentBlue/15');
+                    b.classList.add('border-white/5');
+                });
+                btn.classList.add('active', 'border-luxury-accentBlue', 'bg-luxury-accentBlue/15');
+                btn.classList.remove('border-white/5');
+
+                activeBaseCost = parseInt(btn.getAttribute('data-cost'));
+                activeScopeName = btn.getAttribute('data-label');
+                calculateTotal();
+            });
+        });
+
+        slider.addEventListener('input', () => {
+            const val = parseInt(slider.value);
+            if (val === 1) {
+                speedLabel.innerText = "Express (2-3 Weeks)";
+                activeSpeedModifier = 1.5;
+            } else if (val === 2) {
+                speedLabel.innerText = "Standard (6-8 Weeks)";
+                activeSpeedModifier = 1.0;
+            } else {
+                speedLabel.innerText = "Flexible (12+ Weeks)";
+                activeSpeedModifier = 0.8;
+            }
+            calculateTotal();
+        });
+
+        function calculateTotal() {
+            const finalEstimate = Math.round(activeBaseCost * activeSpeedModifier);
+            estScopeLabel.innerText = activeScopeName;
+            estSpeedMod.innerText = `x${activeSpeedModifier.toFixed(1)}`;
+            
+            // Format dynamic pricing structure
+            priceDisplay.innerText = `$${finalEstimate.toLocaleString()}`;
+        }
+
+        // 6. ACCORDION (FAQ) INTERACTIONS
+        const faqBtns = document.querySelectorAll('.faq-toggle-btn');
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('.toggle-icon');
+
+                // Collapse all first for modern clean behavior
+                faqBtns.forEach(otherBtn => {
+                    if (otherBtn !== btn) {
+                        otherBtn.setAttribute('aria-expanded', 'false');
+                        otherBtn.nextElementSibling.style.maxHeight = null;
+                        otherBtn.querySelector('.toggle-icon').style.transform = 'rotate(0deg)';
+                    }
+                });
+
+                if (isExpanded) {
+                    btn.setAttribute('aria-expanded', 'false');
+                    content.style.maxHeight = null;
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    btn.setAttribute('aria-expanded', 'true');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.style.transform = 'rotate(45deg)';
+                }
+            });
+        });
+
+        // 7. HIGH-SPEED INTERSECTION OBSERVER FOR VISUALLY RICH SCROLL IN
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Stop watching once active to conserve CPU performance
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // 8. CONTACT FORM INTERACTION LOGIC
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const successBanner = document.getElementById('contact-success-banner');
+            successBanner.classList.remove('hidden');
+            
+            // Clean values
+            document.getElementById('agency-contact-form').reset();
+            
+            // Auto-hide alert after some time smoothly
+            setTimeout(() => {
+                successBanner.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>
