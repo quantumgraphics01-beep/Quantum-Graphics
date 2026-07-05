@@ -649,209 +649,89 @@
                         Bespoke products shaping user decisions.
                     </h2>
                 </div>
-                
+
                 <!-- Category Filters (Fully Functional JS Powered) -->
                 <div class="flex flex-wrap gap-2.5">
                     <button class="portfolio-filter-btn active px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase border bg-white text-luxury-black border-white transition-all duration-300" data-filter="all">All Projects</button>
-                    <button class="portfolio-filter-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase border border-white/10 hover:border-white/30 text-gray-400 hover:text-white bg-transparent transition-all duration-300" data-filter="product">Product Design</button>
-                    <button class="portfolio-filter-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase border border-white/10 hover:border-white/30 text-gray-400 hover:text-white bg-transparent transition-all duration-300" data-filter="brand">Branding</button>
-                    <button class="portfolio-filter-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase border border-white/10 hover:border-white/30 text-gray-400 hover:text-white bg-transparent transition-all duration-300" data-filter="dev">Development</button>
+                    <button class="portfolio-filter-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase border border-white/10 hover:border-white/30 text-gray-400 hover:text-white bg-transparent transition-all duration-300" data-filter="logo">Logo Design</button>
+                    <button class="portfolio-filter-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase border border-white/10 hover:border-white/30 text-gray-400 hover:text-white bg-transparent transition-all duration-300" data-filter="branding">Complete Branding</button>
+                    <button class="portfolio-filter-btn px-5 py-2 rounded-full text-xs font-semibold tracking-wider uppercase border border-white/10 hover:border-white/30 text-gray-400 hover:text-white bg-transparent transition-all duration-300" data-filter="social">Social Media Posts</button>
                 </div>
             </div>
 
             <!-- Portfolio Grid (Masonry look, robust and responsive) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="portfolio-grid">
-                
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6" id="portfolio-grid">
+		
                 <!-- Project 1 -->
-                <div class="portfolio-item group glass-premium rounded-3xl overflow-hidden border border-white/5 hover:border-luxury-accentBlue/30 transition-all duration-500 flex flex-col justify-between" data-category="product">
-                    <!-- Project Preview Mockup (Built cleanly with SVG and pure CSS, eliminating slow images) -->
-                    <div class="relative aspect-[16/10] bg-gradient-to-tr from-luxury-black to-slate-900 flex items-center justify-center p-8 overflow-hidden">
-                        <!-- Abstract Glassmorphism UI within image to demonstrate ultimate UI style -->
-                        <div class="w-full h-full glass rounded-2xl p-4 border border-white/10 shadow-2xl relative transform group-hover:scale-[1.03] transition-transform duration-500 flex flex-col justify-between">
-                            <div class="flex items-center justify-between border-b border-white/5 pb-2">
-                                <span class="font-bold text-[10px] tracking-wider text-luxury-accentBlue">NEXUS PLATFORM</span>
-                                <span class="text-[9px] text-gray-500">v4.12 Live</span>
-                            </div>
-                            <!-- Mock Data Visualization -->
-                            <div class="my-auto space-y-3">
-                                <div class="h-1 w-1/3 bg-luxury-accentBlue rounded"></div>
-                                <div class="h-6 w-full bg-white/5 rounded-lg flex items-center justify-between px-3">
-                                    <div class="flex items-center space-x-2">
-                                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                                        <span class="text-[9px] text-gray-300">Active server processing</span>
-                                    </div>
-                                    <span class="text-[9px] font-mono text-emerald-400">99.98%</span>
-                                </div>
-                                <div class="grid grid-cols-3 gap-2">
-                                    <div class="h-10 bg-white/5 rounded-lg border border-white/5"></div>
-                                    <div class="h-10 bg-white/5 rounded-lg border border-white/5"></div>
-                                    <div class="h-10 bg-luxury-accentBlue/20 rounded-lg border border-luxury-accentBlue/30"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Details Info Footer -->
-                    <div class="p-8 border-t border-white/5 bg-luxury-charcoal/40">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs uppercase font-mono tracking-widest text-luxury-accentBlue">Product Design</span>
-                            <span class="text-xs text-gray-500 font-mono">2026</span>
-                        </div>
-                        <h3 class="font-display font-bold text-2xl text-white group-hover:text-luxury-accentBlue transition-colors">Nexus AI Dashboard</h3>
-                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">
-                            A highly optimized enterprise command center for massive AI pipelines, scaling speed by 140%.
-                        </p>
-                    </div>
-                </div>
+                <div class="portfolio-item group glass-premium rounded-3xl overflow-hidden border border-white/5 hover:border-luxury-accentBlue/30 transition-all duration-500 flex flex-col" data-category="logo">
+    			<div class="relative aspect-square overflow-hidden">
+        			<img 
+            				src="images\berek 1.png" 
+            				alt="Project Preview" 
+            				class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500">
+    			</div>
+			<div class="p-8 border-t border-white/5 bg-luxury-charcoal/40 flex-grow">
+                        	<div class="flex items-center justify-between mb-2">
+                            		<span class="text-xs uppercase font-mono tracking-widest text-luxury-accentBlue">Social Media Posts</span>
+                            		<span class="text-xs text-gray-500 font-mono">2024</span>
+                        	</div>
+                        	<h3 class="font-display font-bold text-2xl text-white group-hover:text-luxury-accentBlue transition-colors">ONE MILLION</h3>
+			</div>
+		</div>
 
                 <!-- Project 2 -->
-                <div class="portfolio-item group glass-premium rounded-3xl overflow-hidden border border-white/5 hover:border-luxury-accentPurple/30 transition-all duration-500 flex flex-col justify-between" data-category="brand">
-                    <div class="relative aspect-[16/10] bg-gradient-to-tr from-luxury-black to-purple-950/40 flex items-center justify-center p-8 overflow-hidden">
-                        <div class="w-full h-full glass rounded-2xl p-4 border border-white/10 shadow-2xl relative transform group-hover:scale-[1.03] transition-transform duration-500 flex flex-col items-center justify-center">
-                            <!-- Geometric abstract brand symbol -->
-                            <div class="w-20 h-20 rounded-full bg-gradient-to-br from-luxury-accentPurple to-luxury-accentBlue flex items-center justify-center p-0.5">
-                                <div class="w-full h-full bg-luxury-black rounded-full flex items-center justify-center">
-                                    <i data-lucide="infinity" class="w-10 h-10 text-white animate-pulse"></i>
-                                </div>
-                            </div>
-                            <span class="font-display font-black text-xl tracking-widest text-white mt-4">KRONOS</span>
-                        </div>
-                    </div>
-                    <div class="p-8 border-t border-white/5 bg-luxury-charcoal/40">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs uppercase font-mono tracking-widest text-luxury-accentPurple">Identity & Brand</span>
-                            <span class="text-xs text-gray-500 font-mono">2026</span>
-                        </div>
-                        <h3 class="font-display font-bold text-2xl text-white group-hover:text-luxury-accentPurple transition-colors">Kronos Smart Ledger</h3>
-                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">
-                            Bespoke visual identity system and digital design direction for a sovereign high-speed ledger.
-                        </p>
-                    </div>
-                </div>
+                <div class="portfolio-item group glass-premium rounded-3xl overflow-hidden border border-white/5 hover:border-luxury-accentBlue/30 transition-all duration-500 flex flex-col" data-category="brand">
+    			<div class="relative aspect-square overflow-hidden">
+        			<img 
+            				src="images\berek 2.png" 
+            				alt="Project Preview" 
+            				class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500">
+    			</div>
+			<div class="p-8 border-t border-white/5 bg-luxury-charcoal/40 flex-grow">
+                        	<div class="flex items-center justify-between mb-2">
+                            		<span class="text-xs uppercase font-mono tracking-widest text-luxury-accentBlue">Social Media Posts</span>
+                            		<span class="text-xs text-gray-500 font-mono">2024</span>
+                        	</div>
+                        	<h3 class="font-display font-bold text-2xl text-white group-hover:text-luxury-accentBlue transition-colors">IMAGINATION</h3>
+			</div>
+		</div>
+
+
 
                 <!-- Project 3 -->
-                <div class="portfolio-item group glass-premium rounded-3xl overflow-hidden border border-white/5 hover:border-luxury-accentCyan/30 transition-all duration-500 flex flex-col justify-between" data-category="dev">
-                    <div class="relative aspect-[16/10] bg-gradient-to-tr from-luxury-black to-cyan-950/40 flex items-center justify-center p-8 overflow-hidden">
-                        <div class="w-full h-full glass rounded-2xl p-4 border border-white/10 shadow-2xl relative transform group-hover:scale-[1.03] transition-transform duration-500 flex flex-col justify-between font-mono">
-                            <div class="flex items-center justify-between text-[10px] text-luxury-accentCyan border-b border-white/5 pb-2">
-                                <span>TERMINAL SYSTEM</span>
-                                <span class="animate-pulse">● online</span>
-                            </div>
-                            <div class="my-auto space-y-1 text-[9px] text-gray-400">
-                                <p class="text-white">&gt; npm run build:production</p>
-                                <p class="text-gray-500">&gt; compiling design tokens...</p>
-                                <p class="text-luxury-accentCyan">&gt; assets optimized successfully [32ms]</p>
-                                <p class="text-emerald-400">&gt; lighthouse performance: 100/100</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-8 border-t border-white/5 bg-luxury-charcoal/40">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs uppercase font-mono tracking-widest text-luxury-accentCyan">Aesthetic Dev</span>
-                            <span class="text-xs text-gray-500 font-mono">2026</span>
-                        </div>
-                        <h3 class="font-display font-bold text-2xl text-white group-hover:text-luxury-accentCyan transition-colors">Vortex High-FPS Website</h3>
-                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">
-                            Redefining interactive capabilities. Fluid animations built using optimized CSS transforms running at a steady 60 FPS.
-                        </p>
-                    </div>
-                </div>
+                <div class="portfolio-item group glass-premium rounded-3xl overflow-hidden border border-white/5 hover:border-luxury-accentBlue/30 transition-all duration-500 flex flex-col" data-category="social">
+    			<div class="relative aspect-square overflow-hidden">
+        			<img 
+            				src="images\CHEESY BEEF BURGER post.png" 
+            				alt="Project Preview" 
+            				class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500">
+    			</div>
+			<div class="p-8 border-t border-white/5 bg-luxury-charcoal/40 flex-grow">
+                        	<div class="flex items-center justify-between mb-2">
+                            		<span class="text-xs uppercase font-mono tracking-widest text-luxury-accentBlue">Social Media Posts</span>
+                            		<span class="text-xs text-gray-500 font-mono">2024</span>
+                        	</div>
+                        	<h3 class="font-display font-bold text-2xl text-white group-hover:text-luxury-accentBlue transition-colors">Cheesy Beef Burger</h3>
+			</div>
+		</div>
 
                 <!-- Project 4 -->
-                <div class="portfolio-item group glass-premium rounded-3xl overflow-hidden border border-white/5 hover:border-white/20 transition-all duration-500 flex flex-col justify-between" data-category="product">
-                    <div class="relative aspect-[16/10] bg-gradient-to-tr from-luxury-black to-stone-900 flex items-center justify-center p-8 overflow-hidden">
-                        <div class="w-full h-full glass rounded-2xl p-4 border border-white/10 shadow-2xl relative transform group-hover:scale-[1.03] transition-transform duration-500 flex flex-col justify-between">
-                            <div class="flex items-center justify-between">
-                                <div class="w-8 h-8 rounded bg-white/5"></div>
-                                <div class="h-4 w-12 bg-white/5 rounded"></div>
-                            </div>
-                            <div class="space-y-2 mt-4">
-                                <div class="h-3 w-3/4 bg-white/15 rounded"></div>
-                                <div class="h-2 w-1/2 bg-white/5 rounded"></div>
-                            </div>
-                            <div class="flex justify-end mt-4">
-                                <div class="h-8 w-8 rounded-full bg-white text-luxury-black flex items-center justify-center font-bold text-xs">A</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-8 border-t border-white/5 bg-luxury-charcoal/40">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-xs uppercase font-mono tracking-widest text-gray-400">UX Design</span>
-                            <span class="text-xs text-gray-500 font-mono">2026</span>
-                        </div>
-                        <h3 class="font-display font-bold text-2xl text-white group-hover:text-white transition-colors">Aero Mobile Wallet</h3>
-                        <p class="text-gray-400 text-sm mt-2 leading-relaxed">
-                            Bespoke mobile payment interface focusing on extreme simplification, reducing user click steps by 45%.
-                        </p>
-                    </div>
-                </div>
+                <div class="portfolio-item group glass-premium rounded-3xl overflow-hidden border border-white/5 hover:border-luxury-accentBlue/30 transition-all duration-500 flex flex-col" data-category="dev">
+    			<div class="relative aspect-square overflow-hidden">
+        			<img 
+            				src="YOUR_IMAGE_URL_HERE" 
+            				alt="Project Preview" 
+            				class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-500">
+    			</div>
+			<div class="p-8 border-t border-white/5 bg-luxury-charcoal/40 flex-grow">
+                        	<div class="flex items-center justify-between mb-2">
+                            		<span class="text-xs uppercase font-mono tracking-widest text-luxury-accentBlue">Product Design</span>
+                            		<span class="text-xs text-gray-500 font-mono">2026</span>
+                        	</div>
+                        	<h3 class="font-display font-bold text-2xl text-white group-hover:text-luxury-accentBlue transition-colors">Nexus AI Dashboard</h3>
+			</div>
+		</div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- OUR PROCESS SECTION (Interactive Timeline Storytelling) -->
-    <section id="process" class="py-24 bg-luxury-charcoal/30 relative px-6 lg:px-12">
-        <div class="max-w-7xl mx-auto">
-            <!-- Header -->
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-xs font-mono uppercase tracking-widest text-luxury-accentBlue">Our Execution Method</span>
-                <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-tight text-white mt-2">
-                    Our Four-Phase Strategic Framework
-                </h2>
-                <p class="text-gray-400 mt-4 font-light">
-                    We believe that visual perfection is not a luxury—it is a functional necessity. Our workflow is engineered to bridge the gap between high-end aesthetic precision and measurable business growth.
-                </p>
-            </div>
-
-            <!-- Steps Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
-                <!-- Step 1 -->
-                <div class="glass p-8 rounded-3xl border border-white/5 relative group hover:border-luxury-accentBlue/50 hover:border-[4px] transition-all duration-300">
-                    <span class="absolute right-6 top-6 text-5xl font-display font-black text-white/50 group-hover:text-luxury-accentBlue/100 transition-colors">01</span>
-                    <div class="w-10 h-10 rounded-xl bg-luxury-accentBlue/15 flex items-center justify-center text-luxury-accentBlue mb-6">
-                        <i data-lucide="compass" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-display font-bold text-lg text-white mb-2">Deep Discovery</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        We decode your brand DNA, analyzing your vision, audience, and market landscape to build a high-impact digital strategy.
-                    </p>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="glass p-8 rounded-3xl border border-white/5 relative group hover:border-luxury-accentPurple/50 hover:border-[4px] transition-all duration-300">
-                    <span class="absolute right-6 top-6 text-5xl font-display font-black text-white/50 group-hover:text-luxury-accentPurple/100 transition-colors">02</span>
-                    <div class="w-10 h-10 rounded-xl bg-luxury-accentPurple/15 flex items-center justify-center text-luxury-accentPurple mb-6">
-                        <i data-lucide="layers" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-display font-bold text-lg text-white mb-2">System Architecture</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        We prioritize structural integrity, building a robust design system that ensures your brand remains cohesive, scalable, and efficient.
-                    </p>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="glass p-8 rounded-3xl border border-white/5 relative group hover:border-luxury-accentCyan/50 hover:border-[4px] transition-all duration-300">
-                    <span class="absolute right-6 top-6 text-5xl font-display font-black text-white/50 group-hover:text-luxury-accentCyan/100 transition-colors">03</span>
-                    <div class="w-10 h-10 rounded-xl bg-luxury-accentCyan/15 flex items-center justify-center text-luxury-accentCyan mb-6">
-                        <i data-lucide="sparkles" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-display font-bold text-lg text-white mb-2">Aesthetic Craftsmanship</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        We fuse strategy with high-fidelity execution, crafting bespoke, responsive experiences that immediately elevate your market position.
-                    </p>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="glass p-8 rounded-3xl border border-white/5 relative group hover:border-white/50 hover:border-[2px] transition-all duration-300">
-                    <span class="absolute right-6 top-6 text-5xl font-display font-black text-white/50 group-hover:text-white/100 transition-colors">04</span>
-                    <div class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-white mb-6">
-                        <i data-lucide="check-circle" class="w-5 h-5"></i>
-                    </div>
-                    <h3 class="font-display font-bold text-lg text-white mb-2">Seamless Deployment</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        We translate design into performance, ensuring lightning-fast load times, flawless SEO, and data-driven insights to fuel your growth.
-                    </p>
-                </div>
             </div>
         </div>
     </section>
